@@ -1,6 +1,6 @@
 ## ChatIllusion: Efficient-Aligning Interleaved Generation ability with Visual Instruction Model
 The official release of ChatIllusion.
-For more details, please refer to our [paper on Arxiv]().
+For more details, please refer to our [paper on Arxiv](https://arxiv.org/abs/2311.17963).
 
 <img src="assets/main_framework.png" width="1000" >
 
