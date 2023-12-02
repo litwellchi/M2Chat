@@ -24,7 +24,15 @@ TODO
 
 ## Cite ChatIllusion
 If you use ChatIllusion in your research, please cite our work by using the following BibTeX entry:
-
+```@misc{chi2023chatillusion,
+      title={ChatIllusion: Efficient-Aligning Interleaved Generation ability with Visual Instruction Model}, 
+      author={Xiaowei Chi and Yijiang Liu and Zhengkai Jiang and Rongyu Zhang and Ziyi Lin and Renrui Zhang and Peng Gao and Chaoyou Fu and Shanghang Zhang and Qifeng Liu and Yike Guo},
+      year={2023},
+      eprint={2311.17963},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 ## Thanks
 We highly appreciate the effort of Llama-AdapterV2 and Stable Diffusion XL.
 
