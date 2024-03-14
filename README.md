@@ -1,5 +1,5 @@
-## ChatIllusion: Efficient-Aligning Interleaved Generation ability with Visual Instruction Model
-The official release of ChatIllusion.
+## $M^{2}Chat$: Empowering VLM for Multimodal LLM Interleaved Text-Image Generation
+The official release of $M^{2}Chat$.
 For more details, please refer to our [paper on Arxiv](https://arxiv.org/abs/2311.17963).
 
 <img src="assets/main_framework.png" width="1000" >
@@ -22,10 +22,10 @@ pip install -r requirements.txt
 **Validation.**
 TODO
 
-## Cite ChatIllusion
-If you use ChatIllusion in your research, please cite our work by using the following BibTeX entry:
-```@misc{chi2023chatillusion,
-      title={ChatIllusion: Efficient-Aligning Interleaved Generation ability with Visual Instruction Model}, 
+## Cite $M^{2}Chat$
+If you use $M^{2}Chat$ in your research, please cite our work by using the following BibTeX entry:
+```@misc{chi2023$M^{2}Chat$,
+      title={$M^{2}Chat$: Efficient-Aligning Interleaved Generation ability with Visual Instruction Model}, 
       author={Xiaowei Chi and Yijiang Liu and Zhengkai Jiang and Rongyu Zhang and Ziyi Lin and Renrui Zhang and Peng Gao and Chaoyou Fu and Shanghang Zhang and Qifeng Liu and Yike Guo},
       year={2023},
       eprint={2311.17963},
