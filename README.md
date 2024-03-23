@@ -2,6 +2,7 @@
 The official release of $M^{2}Chat$.
 For more details, please refer to our [paper on Arxiv](https://arxiv.org/abs/2311.17963).
 
+<img src="main_banner.png" width="1000" >
 <img src="main_framework.png" width="1000" >
 
 ## Updates!!
