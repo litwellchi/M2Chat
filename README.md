@@ -6,6 +6,8 @@ For more details, please refer to our [paper on Arxiv](https://arxiv.org/abs/231
 <img src="main_framework.png" width="1000" >
 
 ## Updates!!
+
+* 【2024/03/25】 We update our official papers on Arxiv.
 * 【2023/11/29】 We publish our official papers on Arxiv.
 ## Quick Start
 ### Installation
