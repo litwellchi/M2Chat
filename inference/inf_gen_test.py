@@ -33,7 +33,7 @@ model_path = "llama-adapter/7fa55208379faf2dd862565284101b0e4a2a72114d6490a95e43
 llama_type = name.split('.')[0].split('-')[-1]
 llama_ckpt_dir = os.path.join(llama_dir, llama_type)
 llama_tokenzier_path = os.path.join(llama_dir, 'tokenizer.model')
-query_path = '/aifs4su/mmcode/videogen/chatillusion/mmllama/output_qformer/pretrain_20240224_instruction/checkpoints/epoch0_queryblock.pkl'
+query_path = 'checkpoints/epoch0_queryblock.pkl'
 diffuser_ckpt_dir = "stabilityai/stable-diffusion-xl-base-1.0/"
 # load llama_adapter weights and model_cfg
 print(f'Loading LLaMA-mmdiffuser from {model_path}')
