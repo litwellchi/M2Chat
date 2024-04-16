@@ -37,6 +37,12 @@ If you use $M^{2}Chat$ in your research, please cite our work by using the follo
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+@article{chi2023chatillusion,
+  title={ChatIllusion: Efficient-Aligning Interleaved Generation ability with Visual Instruction Model},
+  author={Chi, Xiaowei and Liu, Yijiang and Jiang, Zhengkai and Zhang, Rongyu and Lin, Ziyi and Zhang, Renrui and Gao, Peng and Fu, Chaoyou and Zhang, Shanghang and Liu, Qifeng and others},
+  journal={arXiv preprint arXiv:2311.17963},
+  year={2023}
+}
 ```
 ## Thanks
 We highly appreciate the effort of Llama-AdapterV2 and Stable Diffusion XL.
