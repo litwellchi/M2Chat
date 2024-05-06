@@ -7,21 +7,26 @@ Or [demo page](https://mattie-e.github.io/M2Chat.github.io/).
 
 <img src="figs/main_framework.png" width="1000" >
 
+##TODO
+[ ] Release online demo
+[ ] Release checkpoint
+[ ] Update the M2chat adapter code
+[x] Upload mmdialog finetunning code
+[x] Upload training code
 ## Updates!!
-
-* 【2024/04/15】 We update our experiment codes. ** not runnable, not runnbale yet**
+* 【2024/04/15】 We update our experiment codes.
 * 【2024/03/25】 We update our official papers on Arxiv.
 * 【2023/11/29】 We publish our official papers on Arxiv.
 ## Quick Start
 ### Installation
-**Step 0.** Install ...
-
-**Step 1.** Install ...
-
-**Step 2.** Install requirements.
+**Step 0.** Install requirements.
 ```shell
 pip install -r requirements.txt
 ```
+
+**Step 1.** Download Llama2 pretrained weights ...
+**Step 2.** Download Diffuser pretrained weight ...
+**Step 3.** Download M2chat bias and querry ckpts  ...
 
 ### Notification
 The publish version code is still under development. 
