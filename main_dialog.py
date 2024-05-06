@@ -40,8 +40,6 @@ def get_args_parser():
                         help='path to Diffuser pretrained checkpoint')
     parser.add_argument('--querry_path', default='./checkpoints/20231106/epoch2_queryblock.pkl', type=str,
                         help='path to LLaMA pretrained checkpoint')
-    parser.add_argument('--max_words', default=96, type=int,
-                        help='max number of input words')
 
     parser.add_argument('--max_words', default=512, type=int,
                         help='max number of input words')
@@ -117,7 +115,6 @@ def main(args):
     llama_type = name.split('.')[0].split('-')[-1]
     llama_ckpt_dir = os.path.join(args.llama_path, llama_type)
     llama_tokenzier_path = os.path.join(args.llama_path, 'tokenizer.model')
-    query_path = './output_qformer/pretrain_20240224_instruction/checkpoints/epoch0_queryblock.pkl'
 
     print(f'Loading LLaMA-mmdiffuser from {args.llama_bias_path}')
     ckpt = torch.load(args.llama_bias_path, map_location='cpu')
