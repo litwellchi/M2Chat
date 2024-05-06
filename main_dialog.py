@@ -7,10 +7,6 @@ import cv2
 import util.misc as misc
 from util.misc import NativeScalerWithGradNormCount as NativeScaler
 from llama.llama_mmdiffuser_dialog import LLaMA_mmdiffuser
-# from llama.llama_mmdiffuser import LLaMA_mmdiffuser
-# from llama.utils import format_prompt.
-# from data.dataset import FinetuneDataset, transform_train
-# from data.ccxm_dataset import ccxm_Finetune_Dataset, transform_train
 from data.MMDialog_dataset import mmdialog_Finetune_Dataset, transform_train, format_mmDialog_sprompt
 
 import argparse
@@ -21,7 +17,6 @@ import os
 import time
 from pathlib import Path
 
-# from engine_finetune import train_one_epoch
 from engine_dialog import train_one_epoch
 
 
@@ -36,14 +31,20 @@ def get_args_parser():
     # Model parameters
     parser.add_argument('--llama_type', default='7B', type=str,
                         help='Type of LLaMA model') #
-    parser.add_argument('--llama_path', default='/path/to/llama', type=str,
+
+    parser.add_argument('--llama_path', default='./share_ckpts/llama1_weight', type=str,
                         help='path to LLaMA pretrained checkpoint')
-    parser.add_argument('--pretrained_path', default='./output_qformer/MMDialog_30k_20240305220351/checkpoint-5.pth', type=str,
-                        help='path to checkpoint from pretrain stage')
+    parser.add_argument('--llama_bias_path', default="./share_ckpts/llama-adapter/7fa55208379faf2dd862565284101b0e4a2a72114d6490a95e432cf9d9b6c813_BIAS-7B.pth", type=str,
+                        help='path to LLaMA pretrained checkpoint')
+    parser.add_argument('--diffuser_path', default="./share_ckpts/stabilityai/stable-diffusion-xl-base-1.0/", type=str,
+                        help='path to Diffuser pretrained checkpoint')
+    parser.add_argument('--querry_path', default='./checkpoints/20231106/epoch2_queryblock.pkl', type=str,
+                        help='path to LLaMA pretrained checkpoint')
+    parser.add_argument('--max_words', default=96, type=int,
+                        help='max number of input words')
+
     parser.add_argument('--max_words', default=512, type=int,
                         help='max number of input words')
-    parser.add_argument('--diffuser_path', default='/path/to/diffuser', type=str,
-                        help='path to Diffuser pretrained checkpoint')
 
     # Optimizer parameters
     parser.add_argument('--weight_decay', type=float, default=0.05,
@@ -108,30 +109,22 @@ def main(args):
     cudnn.benchmark = True
 
     # define the model
-    llama_dir="./share_ckpts/llama1_weight/"
     name = "BIAS-7B"
     phase="finetune"
 
-    model_path = "./share_ckpts/llama-adapter/7fa55208379faf2dd862565284101b0e4a2a72114d6490a95e432cf9d9b6c813_BIAS-7B.pth"
-    # choose from BIAS-7B, LORA-BIAS-7B, CAPTION-7B.pth
-    # model, preprocess = llama.load("BIAS-7B", llama_dir, device)
 
     # BIAS-7B or https://xxx/sha256_BIAS-7B.pth -> 7B
     llama_type = name.split('.')[0].split('-')[-1]
-    llama_ckpt_dir = os.path.join(llama_dir, llama_type)
-    # llama_ckpt_dir = llama_dir
-    llama_tokenzier_path = os.path.join(llama_dir, 'tokenizer.model')
+    llama_ckpt_dir = os.path.join(args.llama_path, llama_type)
+    llama_tokenzier_path = os.path.join(args.llama_path, 'tokenizer.model')
     query_path = './output_qformer/pretrain_20240224_instruction/checkpoints/epoch0_queryblock.pkl'
-    # query_path = './checkpoints/20231106/epoch2_queryblock.pkl'
 
-    diffuser_ckpt_dir = "./share_ckpts/stabilityai/stable-diffusion-xl-base-1.0/"
-    # load llama_adapter weights and model_cfg
-    print(f'Loading LLaMA-mmdiffuser from {model_path}')
-    ckpt = torch.load(model_path, map_location='cpu')
+    print(f'Loading LLaMA-mmdiffuser from {args.llama_bias_path}')
+    ckpt = torch.load(args.llama_bias_path, map_location='cpu')
     model_cfg = ckpt.get('config', {})
 
     model = LLaMA_mmdiffuser(
-        llama_ckpt_dir, llama_tokenzier_path, diffuser_ckpt_dir,
+        llama_ckpt_dir, llama_tokenzier_path, args.diffuser_path,
         max_seq_len=512, max_batch_size=1,
         clip_model='ViT-L/14',
         v_embed_dim=768, v_depth=8,
@@ -144,12 +137,10 @@ def main(args):
         phase=phase)
 
     load_result = model.load_state_dict(ckpt['model'], strict=False)
-    # misc.load_model(model, "./output_qformer/1_MMDialog_30k_text_aligned/checkpoint-5.pth")
-    query_ckpt = torch.load(query_path, map_location='cpu')
+    query_ckpt = torch.load(args.querry_path, map_location='cpu')
     query_load_result1 = model.query_block.load_state_dict(query_ckpt['query_block'], strict=False)
     query_load_result2 = model.sd_query.load_state_dict(query_ckpt['sd_query'], strict=False)
 
-    # print(query_load_result1)
     assert len(load_result.unexpected_keys) == 0, f"Unexpected keys: {load_result.unexpected_keys}"
     model.to(device)
     model.get_trainable_params(phase='finetune') # reset learnable paramaters
