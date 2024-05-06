@@ -8,11 +8,11 @@ Or [demo page](https://mattie-e.github.io/M2Chat.github.io/).
 <img src="figs/main_framework.png" width="1000" >
 
 ##TODO
-[ ] Release online demo
-[ ] Release checkpoint
-[ ] Update the M2chat adapter code
-[x] Upload mmdialog finetunning code
-[x] Upload training code
+- [ ] Release online demo
+- [ ] Release checkpoint
+- [ ] Update the M2chat adapter code
+- [x] Upload mmdialog finetunning code
+- [x] Upload training code
 ## Updates!!
 * 【2024/04/15】 We update our experiment codes.
 * 【2024/03/25】 We update our official papers on Arxiv.
