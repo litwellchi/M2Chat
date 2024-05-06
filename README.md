@@ -3,6 +3,9 @@ The official release of $M^{2}Chat$.
 For more details, please refer to our [paper on Arxiv](https://arxiv.org/abs/2311.17963).
 Or [demo page](https://mattie-e.github.io/M2Chat.github.io/).
 
+[![arXiv](https://img.shields.io/badge/arXiv-2311.17963-b31b1b.svg)](https://arxiv.org/abs/2311.17963)
+[![Project Page](https://img.shields.io/badge/Project-Website-green)](https://mattie-e.github.io/M2Chat.github.io/)
+
 <img src="figs/main_banner.png" width="1000" >
 
 <img src="figs/main_framework.png" width="1000" >
