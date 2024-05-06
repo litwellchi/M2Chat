@@ -1,11 +1,11 @@
 META:
   # - 'cc3m_x/caption_test.csv'
-  # - 'cc3m_x/caption.csv'
+  - 'cc3m_x/caption.csv'
   # - 'cc3m_x/caption_1k.csv'
   # - 'cc3m_x/caption_10k.csv'
   # - 'cc3m_x/caption_100k.csv'
   # - 'cc12m/caption.csv'
-  - ./MMDialogDataset/valid/conversations_pair_catpion_0.json
-  - ./MMDialogDataset/test/conversations_pair_catpion_0.json
-  - ./MMDialogDataset/train/conversations_pair_catpion_0.json
+  # - ./MMDialogDataset/valid/conversations_pair_catpion_0.json
+  # - ./MMDialogDataset/test/conversations_pair_catpion_0.json
+  # - ./MMDialogDataset/train/conversations_pair_catpion_0.json
 

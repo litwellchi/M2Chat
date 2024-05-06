@@ -35,11 +35,11 @@ def get_args_parser():
     parser.add_argument('--llama_path', default='./share_ckpts/llama1_weight', type=str,
                         help='path to LLaMA pretrained checkpoint')
     parser.add_argument('--llama_bias_path', default="./share_ckpts/llama-adapter/7fa55208379faf2dd862565284101b0e4a2a72114d6490a95e432cf9d9b6c813_BIAS-7B.pth", type=str,
-                        help='path to LLaMA pretrained checkpoint')
+                        help='path to LLaMA-adapter BIAS-7B pretrained checkpoint')
     parser.add_argument('--diffuser_path', default="./share_ckpts/stabilityai/stable-diffusion-xl-base-1.0/", type=str,
                         help='path to Diffuser pretrained checkpoint')
     parser.add_argument('--querry_path', default='./checkpoints/20231106/epoch2_queryblock.pkl', type=str,
-                        help='path to LLaMA pretrained checkpoint')
+                        help='path to querry model of the M2Chat')
     parser.add_argument('--max_words', default=96, type=int,
                         help='max number of input words')
 
