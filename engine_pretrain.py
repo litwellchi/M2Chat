@@ -8,7 +8,7 @@ import util.misc as misc
 import util.lr_sched as lr_sched
 
 # from llama import LLaMA_diffuser
-from llama.llama_mmdiffuser import LLaMA_mmdiffuser
+from llama.llama_mmdiffuser_dialog import LLaMA_mmdiffuser
 
 def train_one_epoch(model: LLaMA_mmdiffuser,
                     data_loader: Iterable, optimizer: torch.optim.Optimizer,

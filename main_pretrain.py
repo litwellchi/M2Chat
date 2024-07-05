@@ -5,7 +5,7 @@ from torch.utils.data import Dataset
 
 import util.misc as misc
 from util.misc import NativeScalerWithGradNormCount as NativeScaler
-from llama.llama_mmdiffuser import LLaMA_mmdiffuser
+from llama.llama_mmdiffuser_dialog import LLaMA_mmdiffuser
 
 from data.ccxm_dataset import ccxm_Dataset, transform_train
 

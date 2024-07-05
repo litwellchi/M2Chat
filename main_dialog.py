@@ -232,7 +232,7 @@ def main(args):
                 # answer = context2+"\n###Image:"+caption2
                 formprompts = format_mmDialog_sprompt('answer based on the input dialog', context1, caption1)
                 # formprompts = formprompts + answer
-                img = Image.fromarray(cv2.imread('./videogen/MMDialogDataset/MMDialogDataset/train/-8621082798323348566.jpg'))
+                img = Image.fromarray(cv2.imread('/aifs4su/mmdata/rawdata/videogen/MMDialogDataset/MMDialogDataset/train/-8621082798323348566.jpg'))
                 img = model_without_ddp.clip_transform(img).unsqueeze(0).to(device)# img = model_without_ddp.t2i_generate(prompts=[formprompts])
                 # print(img)
                 print([formprompts])
@@ -262,7 +262,7 @@ def main(args):
                     os.makedirs(ckpt_dir)
                 save_dir = os.path.join(ckpt_dir,f"epoch{epoch}_queryblock.pkl")
                 torch.save(aligner_to_save,save_dir)
-            if args.output_dir and (epoch % 5 == 0 or epoch + 1 == args.epochs):    
+            if args.output_dir and (epoch % 100 == 0 or epoch + 1 == args.epochs):    
                 misc.save_model(
                     args=args, model=model, model_without_ddp=model_without_ddp, optimizer=optimizer,
                     loss_scaler=loss_scaler, epoch=epoch)

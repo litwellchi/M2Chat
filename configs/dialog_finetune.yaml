@@ -1,5 +1,3 @@
 META:
-  - ./MMDialogDataset/valid/conversations_pair_catpion_0.json
-  - ./MMDialogDataset/test/conversations_pair_catpion_0.json
-  - ./MMDialogDataset/train/conversations_pair_catpion_0.json
-
+  - dataset/MMDialogDataset/MMDialogDataset/train/conversations_pair_catpion_0.json
+  - dataset/MMDialogDataset/MMDialogDataset/valid/conversations_pair_catpion_0.json
